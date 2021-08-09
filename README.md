@@ -8,8 +8,9 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  -Ansible/File-Beat.yaml
+  -https://github.com/tylergreen15/CyberWork/blob/3f2b756caf021c349c8ab491c92fc21d2e6f0e24/Ansible/Install-Elk.yaml
   -https://github.com/tylergreen15/CyberWork/blob/52cc187e30db1a7fd63d20d5435055832a6b1509/Ansible/File-Beat.yaml
+  -https://github.com/tylergreen15/CyberWork/blob/3f2b756caf021c349c8ab491c92fc21d2e6f0e24/Ansible/Metric-Beat.yaml
 
 This document contains the following details:
 - Description of the Topologu
@@ -25,7 +26,8 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+-A jumpbox serves as a gatway to gain entry into a remote network
+-A loadbalancer is meant to serve as a specific point of access for a service that is served by multiple machines
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the log files and system resources.
 -Filebeat watches for system logs and forward any changes to the Elasticsearch Host
@@ -65,7 +67,6 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 -It allows for full automation of the specified server and reduces configuration errors
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - Install Python3_pip
 - Install Docker
 - Upgrade memory
@@ -94,5 +95,3 @@ SSH into the control node and follow the steps below:
 - Copy the elk_install.yml file to /etc/ansible/roles/elk_install.yml.
 - Update the hosts file to include the attribute, such as [elk], then include your destination ip of the ELK server directly below.
 - Run the playbook, and navigate to http://[your_elk_server_ip]:5601/app/kibana  to check that the installation worked as expected.
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
